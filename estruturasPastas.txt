@@ -1,0 +1,24 @@
+
+autodeploy: utilizado principalmente por desenvolvedores que podem copiar aplicações para o diretório sendo automaticamente 
+instaladas no Weblogic. Esse recurso está disponível apenas quando o Weblogic estiver configurado em modo desenvolvimento;
+
+bin: contém scripts para iniciar e parar servidores do domínio, além de suas configurações básicas;
+
+config: contém arquivos com a configuração do domínio. Sendo o arquivo config.xml 
+que contém as principais configurações e é seu arquivo mais importante;
+
+console-ext: novas funcionalidades em forma de extensões, (WebLogic Diagnostic Framework, Spring, etc.) 
+são armazenadas aqui. Esta pasta é utilizada apenas pelo Admin Server;
+
+lib: contém bibliotecas java, ou arquivos JAR, que serão adicionadas ao CLASSPATH de cada servidor (JVM). 
+A aplicativo que será executo pelo Weblogic necessita de bibliotecas, é nesta pasta que deverão permanecer;
+
+pending: contém as configurações alteradas no domínio que ainda não foram ativadas. 
+O Weblogic trabalha em duas etapas, ao clicar em salvar, ele salva as alterações num arquivo a parte dentro de pending, 
+somente após clicar em ativar, que as configurações passam a valer;
+
+security: contém arquivos relacionados à segurança do domínio, onde estão os arquivos do LDAP embutido do Weblogic 
+(lá serão armazenados os usuários, grupos e afins);
+
+servers: contém os diretórios de cada servidor executados no domínio, bem como seus arquivos de log e configurações. 
+Nesse diretório cada servidor é identificado por um diretório de mesmo nome.

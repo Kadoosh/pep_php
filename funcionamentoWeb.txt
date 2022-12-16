@@ -1,0 +1,160 @@
+DNS == Converte endereço IP em endereço de web
+
+HTTP:
+
+O protocolo HTTP é um conjunto de regras de transmissão de dados que permitem que máquinas com diferentes 
+configurações possam se comunicar com um mesmo "idioma". A especificação do Protocolo você encontra aqui e o 
+conhecimento sobre o assunto vai mais além, envolvendo Verbos, Cabeçalhos HTTP, etc.
+
+HTTP Verbs:
+
+-GET: O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+-HEAD: O método HEAD solicita uma resposta de forma idêntica ao método GET, porém sem conter o corpo da resposta.
+-POST: O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+-PUT: O método PUT substitui todas as atuais representações do recurso de destino pela carga de dados da requisição.
+-DELETE: O método DELETE remove um recurso específico.
+-CONNECT: O método CONNECT estabelece um túnel para o servidor identificado pelo recurso de destino.
+-OPTIONS: O método OPTIONS é usado para descrever as opções de comunicação com o recurso de destino.
+-TRACE: O método TRACE executa um teste de chamada loop-back junto com o caminho para o recurso de destino.
+-PATCH: O método PATCH é utilizado para aplicar modificações parciais em um recurso.
+
+Body:
+
+A parte final da requisição é o corpo. Nem todas as requisições tem um: as que pegam recursos, como GET, HEAD, DELETE, ou OPTIONS, 
+usualmente não precisam de um. Algumas requisições enviam dados ao servidor a fim de atualizá-lo: é o caso frequente de requisições POST (contendo dados de formulário HTML).
+
+Corpos podem ser divididos, a grosso modo, em duas categorias:
+
+Corpos de recurso-simples, consistindo em um único arquivo, definido pelos dois cabeçalhos: Content-Type e Content-Length.
+Corpos de recurso-múltiplo, consistindo em um corpo de múltiplas partes, cada uma contendo uma porção diferente de informação. 
+Este é tipicamente associado à Formulários HTML.
+
+Headers: 
+
+Cabeçalhos HTTP de uma requisição seguem a mesma estrutura básica de um cabeçalho HTTP: uma cadeia de caracteres insensível à caixa seguida de dois pontos (':') e um valor cuja estrutura depende do cabeçalho. O cabeçalho inteiro, incluindo o valor, consiste em uma única linha, que pode ser bem grande.
+
+Há numerosos cabeçalhos de requisição disponíveis. Eles podem ser divididos em vários grupos:
+
+Cabeçalhos gerais, como Via, se aplicam à mensagem como um todo.
+Cabeçalhos de requisição, como User-Agent, Accept-Type, modificam a requisição, especificando-a mais (como Accept-Language), 
+dando-a contexto (como Referer), ou restringindo-a condicionalmente (como If-None).
+Cabeçalhos de entidade, como Content-Length que se aplicam ao corpo da mensagem. 
+Obviamente este cabeçalho não será transmitido se não houver corpo na requisição.
+
+URL/URI:
+
+URL – Uniform Resource Locatorpermalink
+Em português: Localizador de Recursos Universal e como o próprio nome diz, se refere ao local, o Host que você quer acessar determinado recurso. 
+O objetivo da URL é associar um endereço remoto com um nome de recurso na Internet.
+
+Exemplo de URL
+
+woliveiras.com.br
+woliveiras.org
+woliveiras.xxx
+Ou seja, acessando esses endereços você cai no servidor onde está minha página - Só exemplo - e o servidor vai se encarregar de processar sua solicitação.
+
+A URL é parte da URI.
+
+URN – Uniform Resource Namepermalink
+Em português: Nome de Recursos Universal é o nome do recurso que será acessado e também fará parte da URI.
+
+home.html
+contato.php
+servicos.html
+É comum associarmos URN a página que estamos acessando.
+
+Outro ex.: /api/v01/exemplo/usuarios
+
+URI – Uniform Resource Identifierpermalink
+Em português: Identificador de Recursos Universal, como diz o próprio nome, é o identificador do recurso. 
+Pode ser uma imagem, uma página, etc, pois tudo o que está disponível na internet precisa de um identificador único para que não seja confundido.
+
+Exemplos de URI
+
+https://woliveiras.com.br/desenvolvedor-front-end/
+https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+Pra ficar mais fácil de entender, pois sei que deve ter dado um nó agora:
+
+A URI une o Protocolo (https://) a localização do recurso (URL - woliveiras.com.br) e o 
+nome do recurso (URN - /desenvolvedor-front-end/) para que você acesse as coisas na Web.
+            
+Response:
+
+-Informal
+
+100 Continue
+101 Switching Protocols
+102 Processing
+
+-Success
+
+200 Ok
+201 Created
+202 Accepted
+203 Non-authoritative Information
+204 No Content
+205 Reset Content
+206 Partial Content
+207 Multi-Status
+208 Already Reported
+226 Im Used
+
+-Redirection
+
+300 Multiple Choices
+301 Moved Permanently
+302 Found
+303 See Other
+304 Not Modified
+305 Use Proxy
+307 Temporary Redirect
+308 Permanent Redirect
+
+-Client Erros
+
+400 Bad Request
+401 Unauthorized
+402 Payment Required
+403 Forbidden
+404 Not Found
+405 Method Not Allowed
+406 Not Acceptable
+407 Proxy Authentication Required
+408 Request Timeout
+409 Conflict
+410 Gone
+411 Length Required
+412 Precondition Failed
+413 Payload Too Large
+414 Request-URI Too Long
+415 Unsupported Media Type
+416 Requested Range Not Satisfiable
+417 Expectation Failed
+418 I'm a teapot
+421 Misdirected Request
+422 Unprocessable Entity
+423 Locked
+424 Failed Dependency
+426 Upgrade Required
+428 Precondition Required
+429 Too Many Requests
+431 Request Header Fields Too Large
+444 Connection Closed Without Response
+451 Unavailable For Legal Reasons
+499 Client Closed Request
+
+-Server Error
+
+500 Internal Server Error
+501 Not Implemented
+502 Bad Gateway
+503 Service Unavailable
+504 Gateway Timeout
+505 HTTP Version Not Supported
+506 Variant Also Negotiates
+507 Insufficient Storage
+508 Loop Detected
+510 Not Extended
+511 Network Authentication Required
+599 Network Connect Timeout Error
