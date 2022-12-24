@@ -54,44 +54,4 @@
     echo "<br> Solução reverse 3: <br>";
     print_r($arrayReverse3);
 
-
-    
-
-   
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
-    //Outra forma que consegui fazer
-
-    /*
-   
-    */
-    
-
 ?>
