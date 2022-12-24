@@ -146,7 +146,7 @@
 
     echo "<br>";
     
-    $arrayFor = ["joao, Maria, Pedro, Poliana"];
+    $arrayFor = ["joao", "Maria", "Pedro", "Poliana"];
 
     foreach ($arrayFor as $key => $value) {
         echo "$value";

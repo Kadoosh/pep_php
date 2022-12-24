@@ -1,52 +1,96 @@
-<?php 
+<?php
 
     $array = ["Maria", "Joao", "Miguel", "Joana", "Rafael", "Thiago"];
-    $arrayReverse = [];
+    $arrayReverse1 = [];
+    $arrayReverse2 = [];
+    $arrayReverse3 = [];
+    echo "Array normal: <br>";
     print_r($array);
 
-    function ArrayReverse($array, $arrayReverse ){
+    //Forma 1 (Correta)
 
-        $count = count($array);
-        $increment = 0;
-        $decrement = $count;
+    $index = count($array);
 
-        foreach ($array as $key => $value) {
-            $decrement--;
-            for ($i=0; $i < $count; $i++) {
-                $arrayReverse[$increment] = $array[$decrement];
-                break;
-            }
-            $increment++;
-        }
-        print_r($arrayReverse);
+    foreach ($array as $key => $value) {
+        $index--;
+        $arrayReverse1[$key] = $array[$index];  
     }
+    
+    echo " <br> Solução reverse 1: <br>";
+    print_r($arrayReverse1);
 
-    ArrayReverse($array, $arrayReverse);
+    //Forma 2
 
-    //Outra forma que consegui fazer
+    $count = count($array);
+    $increment = 0;
+    $decrement = $count;
 
-    /*
+    foreach ($array as $key => $value) {
+        $decrement--;
+        for ($i=0; $i < $count; $i++) {
+            $arrayReverse2[$increment] = $array[$decrement];
+            break;
+        }
+        $increment++;
+    }
+    echo " <br> Solução reverse 2: <br>";
+    print_r($arrayReverse2);
+
+    //Forma 3
+
     $i = 0;
     $j = $count;
     
     while ($i < $count) {
-        $i++;
-        $j--;
-        $arrayReverse[$i] =  $array[$j];
-        if ($j == 0) {
 
+        $j--;
+        $arrayReverse3[$i] =  $array[$j];
+        $i++;
+
+        if ($j == 0) {
             break;
         }
     }
-    print_r($arrayReverse);
+    echo "<br> Solução reverse 3: <br>";
+    print_r($arrayReverse3);
 
-    $arrayReverse = [];
 
-    echo "<br>";
+    
 
-    print_r($array);
+   
 
-    echo "<br>";
+
+
+
+
+
+
+
+
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+    //Outra forma que consegui fazer
+
+    /*
+   
     */
     
 
