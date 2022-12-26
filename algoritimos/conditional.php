@@ -76,21 +76,21 @@
 
     //Estrutura Switch
 
-    $testSwitch = 10;
+    $testSwitch = 100;
 
     switch ($testSwitch) {  //aqui fica o dado a ser verificado
         case 100: //aqui e o case, caso o valor de $testSwitch == a esse case aqui, da true, se nao ele passa para o proximo...
             echo "Se testSwitch for == 100 vai executar...";
             break; //aqui e o break, caso o validação der true o codigo e executado e cai no break que "para" a exucução do switch
         case 200:
-            echo "Se testSwitch for == 100 vai executar...";
+            echo "Se testSwitch for == 200 vai executar...";
             break;
         case 300:
-            echo "Se testSwitch for == 100 vai executar...";
+            echo "Se testSwitch for == 300 vai executar...";
             break;
         
         default: //aqui e o default, vai cair aqui caso todos os cases seja falso 
-            echo "Se testSwitch for == 100 vai executar...";
+            echo "Se testSwitch for diferente de todos os cases vai executar aqui...";
             break;
     }
     
