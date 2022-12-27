@@ -4,6 +4,7 @@
     $arrayReverse1 = [];
     $arrayReverse2 = [];
     $arrayReverse3 = [];
+    $arrayReverse4 = [];
     echo "Array normal: <br>";
     print_r($array);
 
@@ -53,5 +54,13 @@
     }
     echo "<br> Solução reverse 3: <br>";
     print_r($arrayReverse3);
+
+    //Forma nativa do PHP
+
+    echo "<br> Solução reverse NATIVA: <br>";
+
+    $arrayReverse4 = array_reverse(array: $array);
+
+    print_r($arrayReverse4);
 
 ?>
