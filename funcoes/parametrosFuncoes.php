@@ -24,4 +24,16 @@
     };
     carColor(); //sem erros
     carColor("azul"); //assume a cor azul
+
+    $arr = ["Lucas", "Mauricio", "Matheus"];
+    $lol = "Lucas";
+
+    function names(array $arr){ //podemos definir qual valor e obrigatorio a 
+
+        print_r($arr);
+
+    }
+
+    names($arr);
+    //names($lol); aqui ele da um erro informando que não esta esperanda uma string e sim um array
 ?>
