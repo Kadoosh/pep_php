@@ -28,7 +28,7 @@
     $arr = ["Lucas", "Mauricio", "Matheus"];
     $lol = "Lucas";
 
-    function names(array $arr){ //podemos definir qual valor e obrigatorio a 
+    function names(array $arr){ //podemos definir qual tipo de valor e obrigatorio
 
         print_r($arr);
 
