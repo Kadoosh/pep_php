@@ -23,6 +23,18 @@
 
     echo $fullName;
 
+    //interpolação
 
+    echo "<br> $name {$secondName}"; //não faz diferença entre $name e {$name}
+
+    //Valores de escape
+
+    //E obrigatorio o uso de aspas duplas "", aspas simples nao funciona ''
+
+
+    echo "Aqui na primeira linha e \n isso aqui na segunda linha <br>"; // \n server para pular linha
+    echo "Aqui e um tab \t <br>"; // \t serve com um TAB (4 espaços)
+    echo "Aqui e o sinal de dollar sem declarar variavel \$"; //para imprimir o $ use uma barra invertida antes dele \$
+    
 
 ?>
