@@ -18,16 +18,13 @@
     function arrayUnique(array $arr){
         
         $arr2 = [];
-
         foreach ($arr as $key => $value) {
             foreach ($arr as $value1) {  
-                if (in_array($value, $arr2)) {
-                    continue;
-                } else {
+                if (!in_array($value, $arr2)) {
                     $arr2[$key] = $value1;
                 }
             }
-        }
+        }  
         print_r($arr2);
     }
 
@@ -38,24 +35,13 @@
     echo "<br> Forma feita a mão 2: <br>"; //Corrigido a ordem dos arrays
 
     function arrayUni(array $arr){
-        
-        $index = 0;
         $arr2 = [];
-
         foreach ($arr as $value) {
-            foreach ($arr as $value1) {   
-                if (in_array($value ,$arr2)) {
-                    continue;
-                } else {
-                    $arr2[$index] = $value;
-                    $index++;
+                if (!in_array($value ,$arr2)) {
+                    $arr2[] = $value;  
                 }
-            }
         }
         print_r($arr2);
     }
-    
     arrayUni($food);
-
-    
 ?>
