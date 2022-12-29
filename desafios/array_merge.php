@@ -2,15 +2,12 @@
 
     $brands1 = ["porsche", "mercedes", "chevrolet", "Ford"];
     $brands2 = ["Ferrari", "Volkswagen", "Fiat"];
-    $result = [];
 
     //Forma nativa PHP
 
     echo "Forma nativa PHP: <br>";
 
-    $result = array_merge($brands1, $brands2);
-
-    print_r($result);
+    print_r($result = array_merge($brands1, $brands2));
 
     echo "<br>";
 
@@ -20,16 +17,12 @@
 
     function arrayMerge(array $arr1, array $arr2 ){
 
-        $result = $arr1;
-        $index = count($result);
-
-        foreach ($arr2 as $key => $value) {
-            $result[$index] = $value;
+        $index = count($arr1);
+        foreach ($arr2 as $value) {
+            $arr1[$index] = $value;
             $index++;
         }
-
-        print_r($result);
-
+        print_r($arr1);
     }
 
     
