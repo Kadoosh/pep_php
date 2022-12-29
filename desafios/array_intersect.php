@@ -2,14 +2,11 @@
 
      $fruits1 = ["banana", "maça", "pera", "melancia", "Laranja"];
      $fruits2 = ["banana", "maça", "pera", "melancia", "Laranja", "Uva"];
-     $result = [];
-
-     $result = array_intersect($fruits1, $fruits2);
 
      //Forma nativa PHP
      
      echo "Forma nativa PHP: <br>";
-     print_r($result);
+     print_r($result = array_intersect($fruits1, $fruits2));
      echo "<br>";
 
      //Forma feita a mão
