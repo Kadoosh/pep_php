@@ -9,12 +9,16 @@
         public $color;
         public $region;
 
-        function walking(){ //Metodos são funçoes
-            echo "Andando... <br>";
+        function nameChoice($name){ //Metodos são funçoes
+            $this->name = $name; //acessando propriedades com o This
         }
 
         function talking(){ //Metodos são funçoes
-            echo "Conversando... <br>";
+            return "Bla Bla Bla <br>";
+        }
+
+        function shoutOut(){
+            return strtoupper($this->talking()); //chamando metodos do proprio objeto com o This
         }
 
         function add($num, $num1){ //Metodos são funçoes
@@ -27,14 +31,19 @@
 
     $rafael->name = "Maria"; //Alterando propriedades
 
-    $rafael->walking();
+    echo "O nome da pessoa e: $rafael->name <br>";
 
-    $rafael->talking();
+    $rafael->nameChoice("Rafael");
+
+    echo "O nome da pessoa e: $rafael->name <br>";
 
     $maria = new People(); //Instanciado Objetos
 
     $maria -> add(10, 20);
     $rafael -> add(5, 5);
+
+    echo $rafael->talking();
+    echo $rafael->shoutOut();
 
 
 ?>
