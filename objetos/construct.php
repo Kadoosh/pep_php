@@ -16,6 +16,6 @@ use Car as GlobalCar;
 
     $bmw = new Car(4, "Branca", "320i");
 
-    echo "O o modelo da bmw e $bmw->model a cor dela e $bmw->color e ela tem $bmw->doors portas<br>";
+    echo "O o modelo da bmw e $bmw->model a cor dela e $bmw->color e ela tem $bmw->doors portas <br>";
 
 ?>
