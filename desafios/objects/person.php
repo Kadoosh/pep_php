@@ -21,7 +21,20 @@
         }
         public function getProfession(){
             echo "Profissão: $this->profession <br>";
-        }   
+        }
+        public function getAgeGroup(){
+            if ($this->age <= 12) {
+                echo "$this->firstN e uma criança <br>";
+            } else if($this->age > 12 && $this->age <= 18){
+                echo "$this->firstN e um jovem <br>";
+            } else if($this->age > 18 && $this->age <= 28){
+                echo "$this->firstN e um adolescente <br>";
+            } else if($this->age > 28 && $this->age <= 60){
+                echo "$this->firstN e uma adulto <br>";
+            } else {
+                echo "$this->firstN e um idoso <br>";
+            }
+        }
     }
 
     class Address extends Person {
@@ -40,9 +53,8 @@
             $this->state = $state;
             $this->cep = $cep;
         }
-
         public function getFulladdress(){
-            echo "Endereço completo: $this->street N° $this->number, $this->district - $this->city, $this->state. CEP: $this->cep";
+            echo "Endereço completo: $this->street N° $this->number, $this->district - $this->city, $this->state. CEP: $this->cep <br>";
         }
 
         
@@ -52,9 +64,9 @@
    $person->getFullName();
    $person->getAge();
    $person->getProfession();
+   $person->getAgeGroup();
    $person = new Address("Rua nova capital", "Nova Vila", 109, "Anapolis", "Goias", 75064440);
    $person->getFulladdress();
-
 
 
 ?>
