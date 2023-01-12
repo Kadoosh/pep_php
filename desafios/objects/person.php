@@ -1,11 +1,11 @@
 <?php 
     class Person {
-        protected $firstN;
-        protected $secondN;
-        protected $age;
-        protected $profession;
+        private $firstN;
+        private $secondN;
+        private $age;
+        private $profession;
 
-        public function __construct($firstN, $secondN, $age, $profession){
+        public function __construct(string $firstN, string $secondN, string $age, string $profession){
             $this->firstN = $firstN;
             $this->secondN = $secondN;
             $this->age = $age;
@@ -20,42 +20,49 @@
         public function getProfession(){
             echo "Profissão: $this->profession <br>";
         }
-        public function isChild(){
+        private function isChild(){
             if ($this->age <= 12) {
-                echo "$this->firstN e uma criança <br>";
+                return "$this->firstN é uma criança <br>";
             } 
         }
-        public function isYoung(){
+        private function isYoung(){
             if ($this->age > 12 && $this->age <= 18) {
-                echo "$this->firstN e uma jovem <br>";
+                return "$this->firstN é uma jovem <br>";
             } 
         }
-        public function isAdolescent(){
+        private function isAdolescent(){
             if ($this->age > 18 && $this->age <= 28) {
-                echo "$this->firstN e um adolescente <br>";
+                return "$this->firstN é um adolescente <br>";
             } 
         }
-        public function isAdult(){
+        private function isAdult(){
             if ($this->age > 28 && $this->age <= 60) {
-                echo "$this->firstN e um adulto <br>";
+                return "$this->firstN é um adulto <br>";
             }
         }
-        public function isOldMan(){
+        private function isOldMan(){
             if ($this->age > 60) {
-                echo "$this->firstN e um idoso <br>";
+                return "$this->firstN é um idoso <br>";
             } 
+        }
+        public function getAgeGoup(){
+            echo $this->isChild();
+            echo $this->isYoung();
+            echo $this->isAdolescent();
+            echo $this->isAdult();
+            echo $this->isOldMan();
         }
     }
 
     class Address {
-        protected $street;
-        protected $district;
-        protected $number;
-        protected $city;
-        protected $state;
-        protected $cep;
+        private $street;
+        private $district;
+        private $number;
+        private $city;
+        private $state;
+        private $cep;
 
-        public function __construct($street, $district, $number, $city, $state, $cep, $person){
+        public function __construct(string $street, string $district, string $number, string $city, string $state, string $cep, Person $person){
             $this->street = $street;
             $this->district = $district;
             $this->number = $number;
@@ -79,11 +86,6 @@
    $address->getPerson()->getFullName();
    $person->getAge();
    $person->getProfession();
+   $person->getAgeGoup();
    $address->getFulladdress();
-
-   $person->isChild();
-   $person->isYoung();
-   $person->isAdolescent();
-   $person->isAdult();
-   $person->isOldMan();
 ?>
