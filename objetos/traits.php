@@ -1,6 +1,6 @@
 <?php 
 
-    trait TestTrait {
+    trait TestTrait { //Reutilização de codigo
         public function test(){
             echo "Testando trait <br>";
         }
