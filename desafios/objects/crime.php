@@ -67,7 +67,7 @@
         }
 
         public function getClassification(){
-            $numOfSuspects = 1;
+            $numOfSuspects = 4;
 
             for ($i=0; $i <= $numOfSuspects; $i++) { 
                 $userName[$i] = $this->getUserNameResponse();
