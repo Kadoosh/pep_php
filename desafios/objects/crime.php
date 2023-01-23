@@ -31,6 +31,7 @@
 
     class Suspect extends Person {
         private function ratingCheck(array $answers){
+            
             for ($i=0; $i < count($answers); $i++) { 
                 $count = array_count_values($answers[$i]);
                 $amountOfYes[$i] = $count["yes"];
@@ -56,12 +57,14 @@
             }
         }
         private function getLiar($amountOfYes){
-            
-            $assassin = 5;
-            $count = array_count_values($amountOfYes);
-            $amountOfKillers = $count[$assassin];
+            $twoAssassins = 2;
+            $noKillers = 0;
+            $isAssassin = 5;
 
-            if ($amountOfKillers >= 2 || $amountOfKillers == 0) {
+            $count = array_count_values($amountOfYes);
+            $count[$isAssassin];
+
+            if ($count >= $twoAssassins || $count == $noKillers) {
                 echo "\r\nTem alguem mentindo!";
             }
         }
