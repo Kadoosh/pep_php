@@ -1,16 +1,17 @@
 <?php 
-    
     class Questioning {
-        private function getQuestions(){
-            return $questions = [
-                "Telefonou para a vítima?",
-                "Esteve no local do crime?",
-                "Mora perto da vítima?",
-                "Devia para a vítima?",
-                "Já trabalhou com a vítima?"];
-        }
+        private $questions = 
+        [
+            "Telefonou para a vítima?",
+            "Esteve no local do crime?",
+            "Mora perto da vítima?",
+            "Devia para a vítima?",
+            "Já trabalhou com a vítima?"
+        ];
+            
+        
         protected function getQuizAnswer(){
-            $questions = $this->getQuestions();
+            $questions = $this->questions;
             for ($i=0; $i < count($questions); $i++) { 
                 do {
                     $answers[$i] = strtolower(readline("Pergunta N°$i: " . $questions[$i]));     
@@ -30,8 +31,15 @@
     }
 
     class Suspect extends Person {
+        const NUM_OF_SUSPECTS = 1;
+        const TO_BE_NO_HAVE_KILLERS = 0;
+        const TO_BE_HAVE_TWO_KILLERS = 2;
+        const YES_TO_BE_INNOCENT = 1;
+        const YES_TO_BE_SUSPECT = 3;
+        const YES_TO_BE_ACCOMPLICE = 4;
+        const YES_TO_BE_ASSASSIN = 5;
+
         private function ratingCheck(array $answers){
-            
             for ($i=0; $i < count($answers); $i++) { 
                 $count = array_count_values($answers[$i]);
                 $amountOfYes[$i] = $count["yes"];
@@ -39,46 +47,42 @@
             return $amountOfYes;
         } 
         private function getParticipationInCrime(array $suspects, array $amountOfYes){
-            $innocent = 1;
-            $suspect = 3;
-            $accomplice = 4;
-            $assassin = 5;
-
             for ($i=0; $i < count($suspects); $i++) { 
-                if($amountOfYes[$i] <= $innocent){
+                if($amountOfYes[$i] <= self::YES_TO_BE_INNOCENT){
                     echo "\r\n$suspects[$i] e Inocente!";
-                } else if ($amountOfYes[$i] > $innocent && $amountOfYes[$i] == $suspect){
+                    $participation[$i] = self::YES_TO_BE_INNOCENT;
+                } else if ($amountOfYes[$i] > self::YES_TO_BE_INNOCENT && $amountOfYes[$i] == self::YES_TO_BE_SUSPECT){
                     echo "\r\n$suspects[$i] e Suspeito!";
-                } else if($amountOfYes[$i] == $accomplice){
+                    $participation[$i] = self::YES_TO_BE_SUSPECT;
+                } else if($amountOfYes[$i] == self::YES_TO_BE_ACCOMPLICE){
                     echo "\r\n$suspects[$i] e Cumplice!";
-                } else if($amountOfYes[$i] == $assassin){
+                    $participation[$i] = self::YES_TO_BE_ACCOMPLICE;
+                } else if($amountOfYes[$i] == self::YES_TO_BE_ASSASSIN){
                     echo ("\r\n$suspects[$i] e Assasino!!");
+                    $participation[$i] = self::YES_TO_BE_ASSASSIN;
                 }
             }
+            $this->getLiar($participation);
         }
-        private function getLiar($amountOfYes){
-            $twoAssassins = 2;
-            $noKillers = 0;
-            $isAssassin = 5;
+        private function getLiar($participation){
+            print_r($participation);
+            $count = array_count_values($participation);
 
-            $count = array_count_values($amountOfYes);
-            $count[$isAssassin];
-
-            if ($count >= $twoAssassins || $count == $noKillers) {
-                echo "\r\nTem alguem mentindo!";
+            switch ($count[self::YES_TO_BE_ASSASSIN]) {
+                case self::TO_BE_HAVE_TWO_KILLERS:
+                    echo "\r\nTem alguem mentindo!";
+                    break;
+                case self::TO_BE_NO_HAVE_KILLERS:
+                    echo "\r\nTem alguem mentindo!";
+                    break;
             }
         }
-
         public function getClassification(){
-            $numOfSuspects = 4;
-
-            for ($i=0; $i <= $numOfSuspects; $i++) { 
+            for ($i=0; $i <= self::NUM_OF_SUSPECTS; $i++) { 
                 $userName[$i] = $this->getUserNameResponse();
                 $answers[$i] = $this->getQuizAnswer();
             } 
-            $amountOfYes = $this->ratingCheck($answers);
-            $this->getParticipationInCrime($userName, $amountOfYes);
-            $this->getLiar($amountOfYes);
+            $this->getParticipationInCrime($userName, $this->ratingCheck($answers));
         }
     } 
 
