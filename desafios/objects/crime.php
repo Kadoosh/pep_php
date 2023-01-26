@@ -8,8 +8,7 @@
             "Devia para a vítima?",
             "Já trabalhou com a vítima?"
         ];
-            
-        
+
         protected function getQuizAnswer(){
             $questions = $this->questions;
             for ($i=0; $i < count($questions); $i++) { 
@@ -31,9 +30,8 @@
     }
 
     class Suspect extends Person {
-        const NUM_OF_SUSPECTS = 1;
-        const TO_BE_NO_HAVE_KILLERS = 0;
-        const TO_BE_HAVE_TWO_KILLERS = 2;
+        const NUM_OF_SUSPECTS = 4;
+
         const YES_TO_BE_INNOCENT = 1;
         const YES_TO_BE_SUSPECT = 3;
         const YES_TO_BE_ACCOMPLICE = 4;
@@ -50,31 +48,23 @@
             for ($i=0; $i < count($suspects); $i++) { 
                 if($amountOfYes[$i] <= self::YES_TO_BE_INNOCENT){
                     echo "\r\n$suspects[$i] e Inocente!";
-                    $participation[$i] = self::YES_TO_BE_INNOCENT;
                 } else if ($amountOfYes[$i] > self::YES_TO_BE_INNOCENT && $amountOfYes[$i] == self::YES_TO_BE_SUSPECT){
                     echo "\r\n$suspects[$i] e Suspeito!";
-                    $participation[$i] = self::YES_TO_BE_SUSPECT;
                 } else if($amountOfYes[$i] == self::YES_TO_BE_ACCOMPLICE){
                     echo "\r\n$suspects[$i] e Cumplice!";
-                    $participation[$i] = self::YES_TO_BE_ACCOMPLICE;
                 } else if($amountOfYes[$i] == self::YES_TO_BE_ASSASSIN){
                     echo ("\r\n$suspects[$i] e Assasino!!");
-                    $participation[$i] = self::YES_TO_BE_ASSASSIN;
                 }
             }
-            $this->getLiar($participation);
+            $this->getLiar($amountOfYes);
         }
-        private function getLiar($participation){
-            print_r($participation);
-            $count = array_count_values($participation);
-
-            switch ($count[self::YES_TO_BE_ASSASSIN]) {
-                case self::TO_BE_HAVE_TWO_KILLERS:
-                    echo "\r\nTem alguem mentindo!";
-                    break;
-                case self::TO_BE_NO_HAVE_KILLERS:
-                    echo "\r\nTem alguem mentindo!";
-                    break;
+        private function getLiar(array $amountOfYes){
+            $count = array_count_values($amountOfYes);
+            $countAssasins = $count[self::YES_TO_BE_ASSASSIN];
+           
+            print_r($countAssasins);
+            if ($countAssasins > 1 || $countAssasins == 0) {
+                echo "\r\nTem alguem mentindo!";
             }
         }
         public function getClassification(){
